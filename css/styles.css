@@ -1,3 +1,31 @@
+/* public-sans-100 - latin */
+@font-face {
+  font-family: "Public Sans";
+  font-style: normal;
+  font-weight: 100;
+  src: local(""),
+       url("../fonts/public-sans-v4-latin-100.woff2") format("woff2"), /* Chrome 26+, Opera 23+, Firefox 39+ */
+       url("../fonts/public-sans-v4-latin-100.woff") format("woff"); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+}
+/* public-sans-regular - latin */
+@font-face {
+  font-family: "Public Sans";
+  font-style: normal;
+  font-weight: 400;
+  src: local(""),
+       url("../fonts/public-sans-v4-latin-regular.woff2") format("woff2"), /* Chrome 26+, Opera 23+, Firefox 39+ */
+       url("../fonts/public-sans-v4-latin-regular.woff") format("woff"); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+}
+/* public-sans-500 - latin */
+@font-face {
+  font-family: "Public Sans";
+  font-style: normal;
+  font-weight: 500;
+  src: local(""),
+       url("../fonts/public-sans-v4-latin-500.woff2") format("woff2"), /* Chrome 26+, Opera 23+, Firefox 39+ */
+       url("../fonts/public-sans-v4-latin-500.woff") format("woff"); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+}
+
 html {
   box-sizing: border-box;
 }
@@ -9,14 +37,22 @@ html {
 }
 
 body {
-  /* font-family: "Arial", sans-serif; */
+  font-family: "Public Sans", "Arial", sans-serif;
   font-size: 16px;
-  line-height: 1.5;
+  line-height: 28px;
   font-style: normal;
+  font-weight: normal;
   padding: 0;
   margin: 0;
-  /* background-color: #fff; */
-  /* color: #000000; */
+  margin-top: 80px;
+  background-color: #FAFAFA;
+  color: var(--main-color);
+  overflow-x: hidden;
+}
+
+:root {
+  --main-color: #9597A5;
+  --main-color-title: #2D314D;
 }
 
 img {
@@ -36,10 +72,243 @@ img {
 }
 
 .container {
-  max-width: 1140px;
+  max-width: 1150px;
   padding-left: 20px;
   padding-right: 20px;
   margin-left: auto;
   margin-right: auto;
 }
 
+.site-header {
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  background-color: #fff;
+  width: 100%;
+}
+
+.site-header-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.sitenav {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  width: 720px;
+  margin-right: auto;
+}
+
+.header-logo-img {
+  display: block;
+}
+
+.sitenav-list {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+}
+
+.sitenav-item:not(:last-child) {
+  margin-right: 30px;
+}
+
+.sitenav-link {
+  position: relative;
+  z-index: 1;
+  display: inline-block;
+  vertical-align: baseline;
+  color: var(--main-color);
+  text-decoration: none;
+  padding: 32px 0;
+  font-size: 14px;
+  line-height: 16px;
+}
+
+.sitenav-link::after {
+  position: absolute;
+  z-index: 1;
+  bottom: 0;
+  left: 0;
+  content: "";
+  width: 100%;
+  height: 4px;
+  background-image: transparent;
+  transform: scaleX(0);
+  transition: transform 0.3s ease;
+}
+
+.sitenav-link:hover::after {
+  transform: scaleX(1);
+  background-image: linear-gradient(135deg, #33D35E 0%, #2AB6D9 99.58%);
+}
+
+.button {
+  display: inline-block;
+  padding: 8px 34px;
+  color: #FFFFFF;
+  font-weight: 500;
+  font-size: 14px;
+  background-image: linear-gradient(135deg, #33D35E 0%, #2AB6D9 99.58%);
+  border-radius: 22px;
+  text-decoration: none;
+}
+
+.button:hover {
+  opacity: 0.4;
+}
+
+.hero {
+  position: relative;
+  z-index: 1;
+  background-image: url("../img/hero-bg-desktop.png");
+  background-repeat: no-repeat;
+  background-size: auto;
+  background-position: calc(50% + 600px) 68%;
+}
+
+.hero-heading{
+  width: 450px;
+  padding-top: 170px;
+  padding-bottom: 170px;
+}
+
+.hero-title {
+  margin: 0;
+  margin-bottom: 24px;
+  color: var(--main-color-title);
+  font-weight: 100;
+  font-size: 56px;
+  line-height: 64px;
+  letter-spacing: -1px;
+}
+
+.hero-text {
+  margin: 0;
+  margin-bottom: 36px;
+  font-size: 18px;
+}
+
+.hero-img {
+  position: absolute;
+  z-index: 1;
+  right: calc(50% - 808px);
+  top: calc(50% - 400px);
+}
+
+.demo {
+  padding: 95px 0;
+  background-color: #F4F5F7;
+}
+
+.demo-title {
+  margin: 0;
+  margin-bottom: 16px;
+  font-weight: 100;
+  font-size: 40px;
+  line-height: 64px;
+  color: var(--main-color-title);
+}
+
+.demo-text {
+  max-width: 635px;
+  margin: 0;
+  margin-bottom: 72px;
+}
+
+.demo-list {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+}
+
+.demo-item {
+  width: 255px;
+}
+.demo-item:not(:last-child) {
+  margin-right: 30px;
+}
+
+.demo-item::before {
+  display: block;
+  content: "";
+  width: 72px;
+  height: 72px;
+  margin-bottom: 40px;
+  border-radius: 50%;
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: left top;
+}
+
+.demo-item-banking::before {
+  background-image: url("../img/online-banking.jpg");
+}
+
+.demo-item-budget::before {
+  background-image: url("../img/simple-budgeting.jpg");
+}
+
+.demo-item-onboard::before {
+  background-image: url("../img/fast-onboarding.jpg");
+}
+
+.demo-item-api::before {
+  background-image: url("../img/open-api.jpg");
+}
+
+.demo-item-title {
+  margin: 0;
+  margin-bottom: 26px;
+  font-weight: 100;
+  font-size: 24px;
+  color: var(--main-color-title);
+}
+
+.demo-item-text {
+  margin: 0;
+  line-height: 26px;
+}
+
+
+
+
+@media
+only screen and (-webkit-min-device-pixel-ratio: 2),
+only screen and (   min--moz-device-pixel-ratio: 2),
+only screen and (     -o-min-device-pixel-ratio: 2/1),
+only screen and (        min-device-pixel-ratio: 2),
+only screen and (                min-resolution: 192dpi),
+only screen and (                min-resolution: 2dppx) {
+
+  .site-hero {
+    background-image: url("../img/hero-bg-desktop@2x.png");
+  }
+
+  .demo-item-banking::before {
+    background-image: url("../img/online-banking@2x.jpg");
+  }
+
+  .demo-item-budget::before {
+    background-image: url("../img/simple-budgeting@2x.jpg");
+  }
+
+  .demo-item-onboard::before {
+    background-image: url("../img/fast-onboarding@2x.jpg");
+  }
+
+  .demo-item-api::before {
+    background-image: url("../img/open-api@2x.jpg");
+  }
+
+}
